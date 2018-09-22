@@ -75,22 +75,35 @@ Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput =function(keyPress){
+Player.prototype.handleInput =function(dt){
     switch (keyPress){
         case 'left':
         this.x -= this.speed + 50;
         break;
         case 'up':
-        this.y -= this.speed + 30;
+        this.y -= this.speed + 50;
         break;
         case 'right':
         this.x += this.speed + 50;
         break;
         case 'down':
-        this.y += this.speed + 30;
+        this.y += this.speed + 50;
         break;
     }
 };
+
+//enemy
+// let Enemy = function(){
+//     this.sprite = 'images/enemy-bug.jpg';
+//     this.x = 10;
+//     this.y = 100;
+// };
+
+// let Player = function(){
+//     this.sprite = 'images/char-princess-girl.jpg';
+//     this.x = 200;
+//     this.y = 100;
+// };
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
