@@ -14,3 +14,6 @@ app.js:75 Uncaught TypeError: Failed to execute 'drawImage' on 'CanvasRenderingC
     at resources.js:60
     at Array.forEach (<anonymous>)
     at Image.img.onload (resources.js:60)
+
+    9/24/2018 
+    going over walkthrough with Llon from saturday's study Jam 

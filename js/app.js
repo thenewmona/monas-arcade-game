@@ -1,3 +1,8 @@
+//per walkthrough with Llon on Sept 22, 2018 
+//this is for debugging 
+
+let debug = false;
+let game = true; 
 //started project with this resource https://discussions.udacity.com/t/i-dont-understand-how-to-code-classic-arcade-game/527836/2
 // Enemies our player must avoid
 let Enemy = function (x, y, speed) {
@@ -75,19 +80,19 @@ Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput =function(dt){
+Player.prototype.handleInput =function(keyPress){
     switch (keyPress){
         case 'left':
         this.x -= this.speed + 50;
         break;
         case 'up':
-        this.y -= this.speed + 50;
+        this.y -= this.speed + 30;
         break;
         case 'right':
         this.x += this.speed + 50;
         break;
         case 'down':
-        this.y += this.speed + 50;
+        this.y += this.speed + 30;
         break;
     }
 };
@@ -112,11 +117,11 @@ let allEnemies = [];
 
 //where the enemies start 
 let enemyPosition = [60, 140, 220];
-let player = new Player(200, 380, 50);
+let player = new Player(200, 390, 50);
 let enemy;
 
 enemyPosition.forEach(function (PosY) {
-    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 512));
+    enemy = new Enemy(0, this.y, 100 + Math.floor(Math.random() * 512));
     allEnemies.push(enemy);
 });
 
