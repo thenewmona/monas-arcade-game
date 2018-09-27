@@ -98,11 +98,11 @@ Player.prototype.handleInput =function(keyPress){
 };
 
 //enemy
-// let Enemy = function(){
-//     this.sprite = 'images/enemy-bug.jpg';
-//     this.x = 10;
-//     this.y = 100;
-// };
+let Enemy = function(){
+    this.sprite = 'images/enemy-bug.jpg';
+    this.x = 10;
+    this.y = 100;
+};
 
 // let Player = function(){
 //     this.sprite = 'images/char-princess-girl.jpg';
@@ -114,6 +114,10 @@ Player.prototype.handleInput =function(keyPress){
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 let allEnemies = [];
+    let enemy1 = new Enemy;
+    let enemy2 = new Enemy;
+    let enemy3 = new Enemy;
+
 
 //where the enemies start 
 let enemyPosition = [60, 140, 220];
