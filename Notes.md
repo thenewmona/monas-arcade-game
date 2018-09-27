@@ -1,3 +1,11 @@
+##Rubric Criteria
+
+[x] Player can not move off the screen (9/26/2018 app2.js)
+[x] bugs cross the screen (9/26/2018 app2.js)
+[] bug player collisions happen logically (not to early or late)
+[] bug player collisions resets the game 
+[] something happens when the player wins 
+
 9/20/2018 error message 
 app.js:106 Uncaught ReferenceError: posY is not defined
     at app.js:106
