@@ -14,7 +14,7 @@ let Enemy = function (x, y) {
 };
 
 Enemy.prototype.update = function (dt) {
-
+    this.x += 150 *dt;
 };
 
 Enemy.prototype.render = function () {
