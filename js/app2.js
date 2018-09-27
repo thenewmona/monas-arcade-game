@@ -4,7 +4,7 @@
 // let game = true;
 
 
-let Enemy = function () {
+let Enemy = function (x,y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
@@ -49,8 +49,8 @@ const player = new Player(202,400,'images/char-princess-girl.png');
 
 //enemy bug 
 
- const allEnemies = [];
+//  const allEnemies = [];
 
-// const allEnemies = enemyPosition.map((y,index)=> {
-//     return new Enemy ((-200*(index +1)), y);
-// });
+const allEnemies = enemyPosition.map((y,index)=> {
+    return new Enemy ((-200*(index +1)), y);
+});
