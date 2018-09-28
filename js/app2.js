@@ -11,14 +11,36 @@ let Enemy = function (x, y) {
     //compensate for the white space around the sprites per Iloan 
     this.height = 65;
     this.width = 95;
+    this.collision = false;
 };
 
 Enemy.prototype.update = function (dt) {
     this.x += 150 *dt;
 if (this.x > ctx.canvas.width + this.width){
     this.x = -200*Math.floor(Math.random() *4) + 1;
-}
+}else{
+    this.x += 150 *dt;
+
+    //enemy collision
+//     if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height,));
+// }else{
+//     this.collision = true;
+
+//     if (player) {
+//         player.x =202;
+//         player.y =400;
+//     }
+// }else{
+//     this.collision = false;
+// }
+// };    
+
+//     //resets players position 
+
+
+ }
 };
+
 Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
@@ -37,7 +59,10 @@ Player.prototype.render = function () {
 };
 
 Player.prototype.update = function (dt) {
-
+// if (game && player.y < 40) {
+//     game = false;
+//     won();
+// }
 };
 
 Player.prototype.handleInput = function (direction) {
@@ -76,7 +101,20 @@ const player = new Player(202, 400, 'images/char-princess-girl.png');
 
 //  const allEnemies = [];
 
-const allEnemies = enemyPosition.map((y, index) => {
+let allEnemies = enemyPosition.map((y, index) => {
     return new Enemy((-200 * (index + 1)), y);
 });
-console.log(allEnemies);
+
+let won = function() {
+    reset();
+    console.log('won!');
+}
+ 
+function reset () {
+    allEnemies =[];
+}
+
+// function collision (px,py,pw,ph,ex,ey,ew,eh){
+//     return (Math.abs(px -ex * 2 < pw + ew)&& Math.abs()py - ey)*2 <));
+// }
+// };
