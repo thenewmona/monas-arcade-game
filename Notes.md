@@ -58,3 +58,9 @@ load @ resources.js:22
 (anonymous) @ engine.js:171
 (anonymous) @ engine.js:194
 with help from Mayguen on slack figure out that i forgot the (x,y) in the enemy function on line 7 
+9/28/2018 
+created a collsion branch of my work 
+worked with Ryan's walkthorugh on the arcade game to try and grasp the collision function 
+also reveiwed Matt's tutorial on the collision 
+
+created a new appJS folder mattWT, to try and figure out this collision thing 
