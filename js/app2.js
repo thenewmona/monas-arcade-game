@@ -20,32 +20,21 @@ Enemy.prototype.update = function (dt) {
         this.x = -200 * Math.floor(Math.random() * 4) + 1;
     } else {
         this.x += 150 * dt;
-    }
+
         //enemy collision
 
-        Enemy.prototype.collision = function () {
-            // let enemyWidth = 95;
-            // let enemyHeight = 65;
-            // if (player.x + this.width > this.x &&
-            //     player.x < this.x + this.width &&
-            //     player.y + this.height > this.y &&
-            //     player.y < +this.height) {
-            //     reset();
-            // }
 
-            if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height, )) {} else {
-                this.collision = true;
 
-                if (player) {
-                    player.x = 202;
-                    player.y = 400;
-                }
-            } else {
-
-                this.collision = false;
-            }
-        }
-    
+        // Enemy.prototype.collision = function () {
+        //     let enemyWidth = 95;
+        //     let enemyHeight = 65;
+        //     if (player.x + this.width > this.x &&
+        //         player.x < this.x + this.width &&
+        //         player.y + this.height > this.y &&
+        //         player.y < +this.height) {
+        //         reset();
+        //     }
+        // }
         //player needes to reset when collision happens 
 
         //     if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height,));
@@ -64,7 +53,7 @@ Enemy.prototype.update = function (dt) {
         //     //resets players position 
 
 
-    
+    }
 };
 
 Enemy.prototype.render = function () {
