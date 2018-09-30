@@ -64,3 +64,5 @@ worked with Ryan's walkthorugh on the arcade game to try and grasp the collision
 also reveiwed Matt's tutorial on the collision 
 
 created a new appJS folder mattWT, to try and figure out this collision thing 
+Did a zoom meeting with Danny, worked through Lloan walkthrough but we still can not get the collision to work
+Going to redo the OOP lessons and learn more about the constructor and class functions 
