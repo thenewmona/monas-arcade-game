@@ -21,6 +21,16 @@ if (this.x > ctx.canvas.width + this.width){
 }else{
     this.x += 150 *dt;
 
+    // Enemy.prototype.collision = function () {
+    //     let enemyWidth = 95;
+    //     let enemyHeight = 65;
+    //     if (player.x + this.width > this.x &&
+    //         player.x < this.x + this.width &&
+    //         player.y + this.height > this.y &&
+    //         player.y < +this.height) {
+    //         reset();
+    //     }
+
     //enemy collision
 //     if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height,));
 // }else{
