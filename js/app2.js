@@ -21,30 +21,28 @@ if (this.x > ctx.canvas.width + this.width){
 }else{
     this.x += 150 *dt;
 
-    // Enemy.prototype.collision = function () {
-    //     let enemyWidth = 95;
-    //     let enemyHeight = 65;
-    //     if (player.x + this.width > this.x &&
-    //         player.x < this.x + this.width &&
-    //         player.y + this.height > this.y &&
-    //         player.y < +this.height) {
-    //         reset();
-    //     }
+    Enemy.prototype.collision = function () {
+        let enemyWidth = 95;
+        let enemyHeight = 65;
+        if (player.x + this.width > this.x &&
+            player.x < this.x + this.width &&
+            player.y + this.height > this.y &&
+            player.y < + this.height) {
+            reset();
+        }
 
-    //enemy collision
-//     if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height,));
-// }else{
-//     this.collision = true;
-
-//     if (player) {
-//         player.x =202;
-//         player.y =400;
-//     }
-// }else{
-//     this.collision = false;
-// }
-// };    
-
+    // enemy collision
+    // function collision (px,py,pw,ph,ex,ey,ew,eh){
+    if (collision(player.x, player.y, player.width, player.width, enemy.x, enemy.y, enemy.width, enemy.height,)){
+    this.collision = true;
+    if (player) {
+        player.x =202;
+        player.y =400;
+    }
+}else{
+    this.collision = false;
+}
+};    
 //     //resets players position 
 
 
@@ -124,7 +122,7 @@ function reset () {
     allEnemies =[];
 }
 
-// function collision (px,py,pw,ph,ex,ey,ew,eh){
-//     return (Math.abs(px -ex * 2 < pw + ew)&& Math.abs()py - ey)*2 <));
-// }
-// };
+function collision (px,py,pw,ph,ex,ey,ew,eh){
+    return (Math.abs(px -ex * 2 < pw + ew)&& Math.abs()py - ey)*2 <));
+}
+};
