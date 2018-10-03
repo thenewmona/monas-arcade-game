@@ -10,8 +10,8 @@ let Enemy = function (x, y) {
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
     //compensate for the white space around the sprites per Iloan 
-    this.height = 65;
-    this.width = 95;
+    this.height = 40;
+    this.width = 65;
     this.collision = false;
 };
 
@@ -26,8 +26,8 @@ if (this.x > ctx.canvas.width + this.width) {
     if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height,)){
         this.collision = true;
         if (player) {
-            player.x =202;
-            player.y =400;
+            player.x =200;
+            player.y =410;
         }
       alert ('try again');
     }else{    
@@ -85,8 +85,8 @@ Player.prototype.handleInput = function (direction) {
 
 //instantiation of the player and bugs 
 
-const enemyPosition = [55, 150, 230];
-const player = new Player(202, 400,  'images/char-princess-girl.png');
+const enemyPosition = [100, 200, 250];
+const player = new Player(175, 410,  'images/char-princess-girl.png');
 //enemy bug 
 
 let allEnemies = enemyPosition.map((y, index) => {
