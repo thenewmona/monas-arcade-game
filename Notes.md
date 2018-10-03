@@ -83,3 +83,35 @@ engine.js:93 Uncaught ReferenceError: allEnemies is not defined
     at resources.js:60
     at Array.forEach (<anonymous>)
     at Image.img.onload (resources.js:60)`
+
+    10/2/2018 
+    Finally have collision :)
+    took over 2 hours to find a `{` and a `:`
+    had some timing issues to 
+    Alert is also working but I want to make that into a modal anyway 
+    Need to add some sound also 
+    *NOTES* ##LindsayC on slack
+
+    So, the way I think about `this` is just thinking of it as this particular thing.
+
+So for example, let's use your bugs.
+:spider: :bug: :enemybug:
+
+Just having all three of those bugs, `this` wouldnt refer to any of them.
+
+But, if I was dealing with just one of those bugs, let's call it `this` :enemybug: bug. So this ladybug is `this` bug. It's easy to overcomplicate `this`. But, putting it plain in simple, you are just pointing to the thing you're looking for. If you were in a function using `this` :enemybug: .. Using `this` wouldn't give you any information about :spider: unless you were working in that particular bug's object.
+
+Maybe that will help clear it up.
+
+As for your collision function, It looks like you've been trying alot of things - but in my solution, I actually didn't even use this for the collision. All I did was have a function named `collisionCheck()` and it takes the `allEnemies` array and `forEach` through it. For each enemy, then I checked to see if they are in range of eachother and then if they were then reset the player.  Then I called the `checkCollisions()` in the update(dt) function in engine.js.
+
+I remember struggling at this too, but it really helps to just `console.log` everything. That way you can start to put the pieces together to try to see what `this` is referring to, or what player.x or enemy.y is.
+
+Please please please reach out if you need me to break this down further.
+
+But the bulk of it that might be easier will start with something like
+```function functionName() {
+  allEnemies.forEach(enemyBug => {
+console.log(enemyBug.x, enemyBug.y)
+console.log(player.x, player.y)
+}```

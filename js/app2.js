@@ -18,7 +18,7 @@ let Enemy = function (x, y) {
 Enemy.prototype.update = function (dt) {
     this.x += 150 *dt;
 if (this.x > ctx.canvas.width + this.width) {
-    this.x = -200*Math.floor(Math.random() *4) + 1;
+    this.x = -200*Math.floor(Math.random() *5) + 1;
 } else {
     this.x += 150 *dt;
 }
@@ -29,9 +29,10 @@ if (this.x > ctx.canvas.width + this.width) {
             player.x =202;
             player.y =400;
         }
-    
+      alert ('try again');
     }else{    
         this.collision = false;
+        
     } 
 };    
 
@@ -85,11 +86,12 @@ Player.prototype.handleInput = function (direction) {
 //instantiation of the player and bugs 
 
 const enemyPosition = [55, 150, 230];
-const player = new Player(202, 400, 'images/char-princess-girl.png');
+const player = new Player(202, 400,  'images/char-princess-girl.png');
 //enemy bug 
 
 let allEnemies = enemyPosition.map((y, index) => {
     return new Enemy ((-200 * (index + 1)), y);
+;
 });
 
 document.addEventListener('keyup', function (e) {
@@ -115,5 +117,5 @@ function reset () {
 
 function collision (px,py,pw,ph,ex,ey,ew,eh){
     return (Math.abs(px - ex * 2 < pw + ew) && Math.abs (py - ey) *2 < ph + eh);
-}
-
+    }
+    
