@@ -31,6 +31,9 @@ Enemy.prototype.update = function (dt) {
     }
 
     //collison detection 
+    //where is the enemy .x and .y
+    //this.x and this.y is declared for both enemy and player 
+    
     if (player.x < this.x + 60 &&
         player.x + 37 > this.x &&
         player.y < this.y + 25 &&
