@@ -18,9 +18,9 @@ let Enemy = function (x, y) {
 Enemy.prototype.update = function (dt) {
     this.x += 150 *dt;
 if (this.x > ctx.canvas.width + this.width) {
-    this.x = -200*Math.floor(Math.random() *5) + 1;
+    this.x = -200*Math.floor(Math.random() *4) + 1;
 } else {
-    this.x += 150 *dt;
+    this.x += 200 *dt;
 }
 
     if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height,)){
