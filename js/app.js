@@ -113,10 +113,13 @@ let Enemy = function(){
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let allEnemies = [];
-    let enemy1 = new Enemy;
-    let enemy2 = new Enemy;
-    let enemy3 = new Enemy;
+const player = new Player();
+    let enemy1 = new Enemy(-101,0.175);
+    let enemy2 = new Enemy(-101,83,115);
+    let enemy3 = new Enemy((-101*2.5),83,200);
+    const allEnemies = [];
+    allEnemies.push(enemy1,enemy2,enemy3);
+    console.log(allEnemies);
 
 
 //where the enemies start 

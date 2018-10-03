@@ -111,9 +111,21 @@ const player = new Player(202, 400, 'images/char-princess-girl.png');
 
 //  const allEnemies = [];
 
-let allEnemies = enemyPosition.map((y, index) => {
-    return new Enemy((-200 * (index + 1)), y);
-});
+let allEnemies = [
+    new Enemy(-100, 145),
+    new Enemy(-110, 125),
+    new Enemy(-250, 62),
+    new Enemy(-120, 62),
+    new Enemy(-130, 230),
+    // new Enemy(-140, 210)
+];
+console.log(allEnemies);
+function collision() {
+    if (this.x() && this.y()){
+        reset();
+    }
+}
+//enemy speed
 
 let won = function() {
     reset();
