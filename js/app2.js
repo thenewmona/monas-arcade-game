@@ -1,7 +1,8 @@
 //per Ilon walkthrough 9/22/2018
+// https://www.youtube.com/watch?time_continue=35&v=oz7pHJ65TEk
 // this is for debugging 
 // let debug = false;
-// let game = true;
+ let game = true;
 
 
 let Enemy = function (x, y) {
@@ -16,52 +17,36 @@ let Enemy = function (x, y) {
 
 Enemy.prototype.update = function (dt) {
     this.x += 150 *dt;
-if (this.x > ctx.canvas.width + this.width){
+if (this.x > ctx.canvas.width + this.width) {
     this.x = -200*Math.floor(Math.random() *4) + 1;
-}else{
+} else {
     this.x += 150 *dt;
-
-    // Enemy.prototype.collision = function () {
-    //     let enemyWidth = 95;
-    //     let enemyHeight = 65;
-    //     if (player.x + this.width > this.x &&
-    //         player.x < this.x + this.width &&
-    //         player.y + this.height > this.y &&
-    //         player.y < +this.height) {
-    //         reset();
-    //     }
-
-    //enemy collision
-//     if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height,));
-// }else{
-//     this.collision = true;
-
-//     if (player) {
-//         player.x =202;
-//         player.y =400;
-//     }
-// }else{
-//     this.collision = false;
-// }
-// };    
-
-//     //resets players position 
-
-
- }
-};
-
-Enemy.prototype.render = function () {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-let Player = function (x, y) {
+    if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height,)){
+        this.collision = true;
+        if (player) {
+            player.x =202;
+            player.y =400;
+        }
+    
+    }else{    
+        this.collision = false;
+    } 
+};    
+
+//Puts the enemy on the screen 
+Enemy.prototype.render = function () {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+let Player = function (x, y, sprite) {
     this.x = x;
     this.y = y;
-    this.sprite = 'images/char-princess-girl.png'
+    this.sprite = sprite;
     //compensate for the white space around the sprites per Iloan 
-    this.height = 65;
-    this.width = 95;
+    this.height = 75;
+    this.width = 65;
 }
 
 Player.prototype.render = function () {
@@ -69,10 +54,13 @@ Player.prototype.render = function () {
 };
 
 Player.prototype.update = function (dt) {
-// if (game && player.y < 40) {
-//     game = false;
-//     won();
-// }
+if (game && player.y < 40) {
+    game = false;
+    setTimeout(() => {
+        alert("you won!");//TODO modal needed here 
+    }, 250)
+    won();
+}
 };
 
 Player.prototype.handleInput = function (direction) {
@@ -89,11 +77,23 @@ Player.prototype.handleInput = function (direction) {
     } else if (direction === 'up' && this.y - vertical > 0 - player.height) {
         this.y -= vertical;
     
-    }
-}
+    };
+};
+
+
+
+//instantiation of the player and bugs 
+
+const enemyPosition = [55, 150, 230];
+const player = new Player(202, 400, 'images/char-princess-girl.png');
+//enemy bug 
+
+let allEnemies = enemyPosition.map((y, index) => {
+    return new Enemy ((-200 * (index + 1)), y);
+});
 
 document.addEventListener('keyup', function (e) {
-    var allowedKeys = {
+    let allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
@@ -103,40 +103,17 @@ document.addEventListener('keyup', function (e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-const enemyPosition = [55, 150, 230];
 
-const player = new Player(202, 400, 'images/char-princess-girl.png');
+ function won () {
+     reset ();
+     //alert('you won!')//TODO need to make this a modal 
+ };
 
-//enemy bug 
-
-//  const allEnemies = [];
-
-let allEnemies = [
-    new Enemy(-100, 145),
-    new Enemy(-110, 125),
-    new Enemy(-250, 62),
-    new Enemy(-120, 62),
-    new Enemy(-130, 230),
-    // new Enemy(-140, 210)
-];
-console.log(allEnemies);
-function collision() {
-    if (this.x() && this.y()){
-        reset();
-    }
-}
-//enemy speed
-
-let won = function() {
-    reset();
-    console.log('won!');
-}
- 
 function reset () {
-    allEnemies =[];
+    allEnemies = [];
+};
+
+function collision (px,py,pw,ph,ex,ey,ew,eh){
+    return (Math.abs(px - ex * 2 < pw + ew) && Math.abs (py - ey) *2 < ph + eh);
 }
 
-// function collision (px,py,pw,ph,ex,ey,ew,eh){
-//     return (Math.abs(px -ex * 2 < pw + ew)&& Math.abs()py - ey)*2 <));
-// }
-// };
