@@ -85,8 +85,8 @@ Player.prototype.handleInput = function (direction) {
 
 //instantiation of the player and bugs 
 
-const enemyPosition = [100, 200, 250];
-const player = new Player(175, 410,  'images/char-princess-girl.png');
+const enemyPosition = [60, 140, 220];
+const player = new Player(200, 380,  'images/char-princess-girl.png');
 //enemy bug 
 
 let allEnemies = enemyPosition.map((y, index) => {
@@ -115,9 +115,9 @@ document.addEventListener('keyup', function (e) {
 function reset () {
     allEnemies = [];
 };
-console.log(allEnemies);
+
 function collision (px,py,pw,ph,ex,ey,ew,eh){
     return (Math.abs(px - ex * 2 < pw + ew) && Math.abs (py - ey) *2 < ph + eh);
     }
     
-    
+    console.log(allEnemies, player.y, player.x);
