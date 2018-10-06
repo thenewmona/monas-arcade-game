@@ -91,6 +91,7 @@ const player = new Player(175, 410,  'images/char-princess-girl.png');
 
 let allEnemies = enemyPosition.map((y, index) => {
     return new Enemy ((-200 * (index + 1)), y);
+      
 ;
 });
 
@@ -114,8 +115,9 @@ document.addEventListener('keyup', function (e) {
 function reset () {
     allEnemies = [];
 };
-
+console.log(allEnemies);
 function collision (px,py,pw,ph,ex,ey,ew,eh){
     return (Math.abs(px - ex * 2 < pw + ew) && Math.abs (py - ey) *2 < ph + eh);
     }
+    
     
