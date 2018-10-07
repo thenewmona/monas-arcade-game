@@ -115,3 +115,90 @@ But the bulk of it that might be easier will start with something like
 console.log(enemyBug.x, enemyBug.y)
 console.log(player.x, player.y)
 }```
+
+10/6/2018 
+
+Still having issues with exact collison's after talking with several people, it was advised to try Matt's tutorial 
+so I am now back to `Matt.js`
+getting this error message though
+
+
+
+`Matt.js:157 Uncaught ReferenceError: bug1 is not defined
+    at Matt.js:157
+(anonymous) @ Matt.js:157
+engine.js:93 Uncaught ReferenceError: allEnemies is not defined
+    at updateEntities (engine.js:93)
+    at update (engine.js:81)
+    at main (engine.js:47)
+    at init (engine.js:68)
+    at resources.js:60
+    at Array.forEach (<anonymous>)
+    at Image.img.onload (resources.js:60)`
+*this is actually the console log to see where the bugs are at 
+    `Buggy!!52.12249491146057159.31588613939073385.00525978360673`
+    Chase Owens (FEND) [14 hours ago]
+Mona, if your checkCollision function is in you Player object as a method, what are you checking for?
+
+You are checking if (this.y === n && this.x < allEnemies[0].x +20 && this.x > allEnemies[0].x - 20) { this.reset } )
+
+
+Chase Owens (FEND) [14 hours ago]
+@Adventurenow (FEND) it was not a time issue. I just felt this would be a good alternative to a walkthrough. It does not offer as much support as a walkthrough, but it should offer enough support to lead users to successfully completing whatever they are working on.
+
+@thenewmona {FEND}Michigan
+
+After reviewing the handle Collision component, I'd love to hear what further questions or struggles you are contacting.
+
+
+Chase Owens (FEND) [13 hours ago]
+No worries :kanye_smile: (edited)
+
+
+Also sent to the channel
+thenewmona {FEND}Michigan [13 hours ago]
+Hi @Chase Owens (FEND) here is my repo
+https://github.com/thenewmona/monas-arcade-game
+I am actually needing more of an understanding or clarity on how to figure out the math /logic for coming up with the answer for this project
+I did another project that was specific to collision
+A pong game, once again it was not really explained clearly how they got the #'s, just that I was using algebra, calculus , and some geometry
+Links were even provided for us
+Thanks
+GitHub
+thenewmona/monas-arcade-game
+Contribute to thenewmona/monas-arcade-game development by creating an account on GitHub.
+ 
+
+
+Chase Owens (FEND) [12 hours ago]
+So what is your player's y-coordinate when colliding with the enemy on the bottom row? And the row above it? And the row above it?
+
+To specify these possibilities, you need to identify starting position and distance of moving forward and back. (edited)
+
+
+Also sent to the channel
+thenewmona {FEND}Michigan [12 hours ago]
+LOL, :slightly_smiling_face: that is the million dollar question, that is what I am needing help figure out how to find this information out
+I just went through all my code to get rid of all my console logs, but I had to much info,
+I created the alert so that I could figure out when I collide.
+I am doing `console.log(allEnemies, player.y, player.x);`
+per Matt's tutorial
+only problem I am having is that this information comes up when the game starts not when the player collides with the bugs
+I would also like to be able the get the grid information if possible like LLoan did in his walk through
+https://snag.gy/L8J5X0.jpg (524 kB)
+Unfortunately my repo is not up to date, I have been playing with the numbers .
+Sorry (edited)
+
+
+Chase Owens (FEND) [7 hours ago]
+To figure it out write down the y-coordinate being used to place your Player on the board.
+
+Next to it write the number of pixels your player moves when moving forward.
+
+Then start hitting the up arrow. Count how many times it takes hitting up to get in the road.
+
+
+Chase Owens (FEND) [6 hours ago]
+Or just console.log(Player.y); This will give your conditional a start,
+
+`if (this.y === n && allEnemies.x > this.x - 20) { this.reset() }` (edited)

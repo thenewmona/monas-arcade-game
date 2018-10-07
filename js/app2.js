@@ -3,15 +3,13 @@
 // this is for debugging 
 // let debug = false;
  let game = true;
-
-
 let Enemy = function (x, y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
     //compensate for the white space around the sprites per Iloan 
-    this.height = 40;
-    this.width = 65;
+    this.height = 75;
+    this.width = 95;
     this.collision = false;
 };
 
@@ -26,13 +24,12 @@ if (this.x > ctx.canvas.width + this.width) {
     if (collision(player.x, player.y, player.width, player.width, this.x, this.y, this.width, this.height,)){
         this.collision = true;
         if (player) {
-            player.x =200;
-            player.y =410;
+            player.x =202;
+            player.y =400;
         }
       alert ('try again');
     }else{    
-        this.collision = false;
-        
+        this.collision = false;        
     } 
 };    
 
@@ -80,20 +77,18 @@ Player.prototype.handleInput = function (direction) {
     
     };
 };
-
-
-
 //instantiation of the player and bugs 
 
-const enemyPosition = [60, 140, 220];
-const player = new Player(200, 380,  'images/char-princess-girl.png');
+const enemyPosition = [55, 140, 230];
+const player = new Player(202, 400,  'images/char-princess-girl.png');
 //enemy bug 
 
 let allEnemies = enemyPosition.map((y, index) => {
     return new Enemy ((-200 * (index + 1)), y);
       
-;
+
 });
+
 
 document.addEventListener('keyup', function (e) {
     let allowedKeys = {
@@ -119,5 +114,4 @@ function reset () {
 function collision (px,py,pw,ph,ex,ey,ew,eh){
     return (Math.abs(px - ex * 2 < pw + ew) && Math.abs (py - ey) *2 < ph + eh);
     }
-    
-    console.log(allEnemies, player.y, player.x);
+       
