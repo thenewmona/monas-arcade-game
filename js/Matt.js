@@ -56,7 +56,7 @@ Player.prototype.handleInput = function (keyEnter) {
             }
             break;
         case 'up':
-            if (this.y > this.stepY) {
+            if (this.y > 0) {
                 this.y -= this.stepY;
             }
             break;
