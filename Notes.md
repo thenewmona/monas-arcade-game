@@ -202,3 +202,8 @@ Chase Owens (FEND) [6 hours ago]
 Or just console.log(Player.y); This will give your conditional a start,
 
 `if (this.y === n && allEnemies.x > this.x - 20) { this.reset() }` (edited)
+
+10/7/2018 suggestion on collision from Tyler-Fend Webinar by 
+##Michael Jackson
+[HTML5 Canvas Game: 2D Collision Detection](https://blog.sklambert.com/html5-canvas-game-2d-collision-detection/)
+[Sweet Alert Modal](https://sweetalert.js.org/guides/)
