@@ -3,10 +3,10 @@ let game = true; //per Lloan webinar
 let Enemy = function (x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
-    this.y = y + 55; //centering the enemy along the y axis
+    this.y = y +45; //centering the enemy along the y axis which is the top of the game
     this.speed = speed; // control how fast enemies move
-    this.stepX = 101;//distance between blocks on x 
-    this.stepY = 83;//distance between blocks on y 
+    this.stepX = 101; //distance between blocks on x 
+    //this.stepY = 95;//distance between blocks on y 
     this.boundary = this.stepX * 5;
     this.resetPos = -this.stepX;
 };
@@ -32,13 +32,12 @@ Enemy.prototype.render = function () {
 
 let Player = function (x, y, speed) {
     this.sprite = 'images/char-princess-girl.png';
-    this.x = x;
-    this.y = y;
+
     this.speed = speed;
-    this.stepX = 101;
+    this.stepX = 101; //per Matt Y starts at the top 
     this.stepY = 83;
     this.startX = this.stepX * 2; // columns advice Racheal got from Rodrick, do it by they blocks
-    this.startY = (this.stepY * 4) + 55; // rows numbers represent how many blocks , 55 comes from line 5
+    this.startY = (this.stepY * 4) +45; // rows numbers represent how many blocks , 55 comes from line 5
     this.x = this.startX;
     this.y = this.startY;
     this.won = false;
@@ -78,17 +77,13 @@ Player.prototype.handleInput = function (keyEnter) {
 Player.prototype.update = function () {
 
     for (let enemy of allEnemies) {
-        if (this.y === enemy.y &&
-            (enemy.x + enemy.stepX / 2 > this.x &&
-                enemy.x < this.x + this.stepX / 2)) {
+        if (this.y === enemy.y && (enemy.x + enemy.stepX / 2 > this.x && enemy.x < this.x + this.stepX / 2)) {
             this.reset();
         }
     }
-
     //won function needed here 
     if (this.y === 55) {
         this.won = true;
-        
     }
 }
 // alert('Your Udacious!!!');
@@ -102,6 +97,7 @@ const player = new Player();
 const bug1 = new Enemy(-101, 0, 175);
 const bug2 = new Enemy(-101, 83, 300);
 const bug3 = new Enemy((-101 * 2.5), 83, 300);
+
 const allEnemies = [];
 allEnemies.push(bug1, bug2, bug3);
 console.log(allEnemies);
