@@ -26,3 +26,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Obj
 
 [Arcade Game Walkthrough Part 4 – Hero’s First Steps](https://matthewcranford.com/arcade-game-walkthrough-part-4-heros-first-steps/)
 [Arcade Game Walkthrough Part 6 – Collisions, Win Conditions, and Game Resets](https://matthewcranford.com/arcade-game-walkthrough-part-6-collisions-win-conditions-and-game-resets/)
+##Images
+[Bugs](https://opengameart.org/content/lpc-beetle)
+[ladybug](https://www.gameartguppy.com/checkout/order-received/20766/?key=wc_order_5bbb41808b30c)
+[Beetle](https://www.gameartguppy.com/checkout/order-received/20766/?key=wc_order_5bbb41808b30c)
+[blue bug](https://www.gameartguppy.com/checkout/order-received/20766/?key=wc_order_5bbb41808b30c)
+[Star Beetle](https://www.gameartguppy.com/checkout/order-received/20766/?key=wc_order_5bbb41808b30c)

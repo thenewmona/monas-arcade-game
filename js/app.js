@@ -1,143 +1,111 @@
-//per walkthrough with Llon on Sept 22, 2018 
-//this is for debugging 
-
-let debug = false;
-let game = true; 
-//started project with this resource https://discussions.udacity.com/t/i-dont-understand-how-to-code-classic-arcade-game/527836/2
-// Enemies our player must avoid
+//Enemies our player must avoid
+let game = true; //per Lloan webinar 
 let Enemy = function (x, y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-    this.x = x;
-    this.y = y;
-    this.speed = speed;
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = x;
+    this.y = y +45; //centering the enemy along the y axis which is the top of the game
+    this.speed = speed; // control how fast enemies move
+    this.stepX = 101; //distance between blocks on x 
+    //this.stepY = 95;//distance between blocks on y 
+    this.boundary = this.stepX * 5;
+    this.resetPos = -this.stepX;
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function (dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-    this.x += this.speed * dt;
 
-    // Resets enemies postion to move across the screen again
-    if (this.x > 550) {
-        this.x = -100;
-        this.speed = 100 + Math.floor(Math.random() * 512);
-    }
+    if (this.x < this.boundary) {
 
-    //collison detection 
-    //where is the enemy .x and .y
-    //this.x and this.y is declared for both enemy and player 
-    
-    if (player.x < this.x + 60 &&
-        player.x + 37 > this.x &&
-        player.y < this.y + 25 &&
-        30 + player.y > this.y) {
-        player.x = 200;
-        player.y = 380;
+        this.x += this.speed * dt;
+    } else { // reset the player
+
+        this.x = this.resetPos;
     }
 };
 
-//enemy appears
+// Draw enemy
 Enemy.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+
 let Player = function (x, y, speed) {
-    this.x = x;
-    this.y = y;
-    this.speed = speed;
     this.sprite = 'images/char-princess-girl.png';
-};
 
-Player.prototype.update = function (dt) {
-    //make sure the player doesn't go past the wall 
-    if (this.y > 380) {
-        this.y = 380;
-    }
+    this.speed = speed;
+    this.stepX = 101; //per Matt Y starts at the top 
+    this.stepY = 83;
+    this.startX = this.stepX * 2; // columns advice Racheal got from Rodrick, do it by they blocks
+    this.startY = (this.stepY * 4) +45; // rows numbers represent how many blocks , 55 comes from line 5
+    this.x = this.startX;
+    this.y = this.startY;
+    this.won = false;
 
-    if (this.x > 400) {
-        this.x = 400;
-    }
-
-    if(this.x <0){
-        this.x =0;
-    } 
-
-    //player hits the top wall
-    if (this.y < 0) {
-        this.x = 200;
-        this.y = 380;
-    }
 };
 
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput =function(keyPress){
-    switch (keyPress){
+Player.prototype.handleInput = function (keyEnter) {
+    switch (keyEnter) {
         case 'left':
-        this.x -= this.speed + 50;
-        break;
+            if (this.x > 0) {
+                this.x -= this.stepX;
+            }
+            break;
         case 'up':
-        this.y -= this.speed + 30;
-        break;
+            if (this.y > 0) {
+                this.y -= this.stepY;
+            }
+            break;
         case 'right':
-        this.x += this.speed + 50;
-        break;
+            if (this.x < this.stepX * 4) {
+                this.x += this.stepX;
+            }
+            break;
         case 'down':
-        this.y += this.speed + 30;
-        break;
+            if (this.y < this.stepY * 4) {
+                this.y += this.stepY;
+                break;
+            }
     }
-};
 
-//enemy
-let Enemy = function(){
-    this.sprite = 'images/enemy-bug.jpg';
-    this.x = 10;
-    this.y = 100;
-};
+}
 
-// let Player = function(){
-//     this.sprite = 'images/char-princess-girl.jpg';
-//     this.x = 200;
-//     this.y = 100;
-// };
+Player.prototype.update = function () {
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+    for (let enemy of allEnemies) {
+        if (this.y === enemy.y && (enemy.x + enemy.stepX / 2 > this.x && enemy.x < this.x + this.stepX / 2)) {
+            this.reset();
+        }
+    }
+    //won function needed here 
+    if (this.y === 55) {
+        this.won = true;
+    }
+}
+
+
+Player.prototype.reset = function () {
+    this.y = this.startY;
+    this.x = this.startX;
+}
+
 const player = new Player();
-    let enemy1 = new Enemy(-101,0.175);
-    let enemy2 = new Enemy(-101,83,115);
-    let enemy3 = new Enemy((-101*2.5),83,200);
-    const allEnemies = [];
-    allEnemies.push(enemy1,enemy2,enemy3);
-    console.log(allEnemies);
+const bug1 = new Enemy(-101, 0, 175);
+const bug2 = new Enemy(-101, 83, 300);
+const bug3 = new Enemy((-101 * 2.5), 83, 300);
+
+const allEnemies = [];
+allEnemies.push(bug1, bug2, bug3);
+console.log(allEnemies);
 
 
-//where the enemies start 
-let enemyPosition = [60, 140, 220];
-let player = new Player(200, 390, 50);
-let enemy;
 
-enemyPosition.forEach(function (PosY) {
-    enemy = new Enemy(0, this.y, 100 + Math.floor(Math.random() * 512));
-    allEnemies.push(enemy);
-});
+// provide by Udacity 
 
-//This code provide by Udacity 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
     var allowedKeys = {
         37: 'left',
@@ -146,6 +114,17 @@ document.addEventListener('keyup', function (e) {
         40: 'down'
     };
 
-
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+//per Lloan webinar 
+function won() {
+    reset();
+    alert('you won!') //TODO need to make this a modal 
+};
+
+function reset() {
+    this.y = this.startY;
+    this.x = this.startX;
+    allEnemies = [];
+};
