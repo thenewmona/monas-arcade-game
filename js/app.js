@@ -84,11 +84,11 @@ Player.prototype.update = function () {
             helpMe.play();
         }
     }
-    //won function needed here 
+   
     if (this.y === -38 && !this.moving) { //help from Rodrick
         this.won = true;
         won()
-        //console.log('yeah');
+       
     }
 }
 
@@ -105,7 +105,7 @@ const bug3 = new Enemy((-101 * 2.5), 83, 300);
 
 const allEnemies = [];
 allEnemies.push(bug1, bug2, bug3);
-//console.log(allEnemies);
+
 
 // provide by Udacity 
 
@@ -124,7 +124,7 @@ document.addEventListener('keyup', function (e) {
 function won() {
     player.reset();
     yeah.play();
-    alert('you audacious!') //TODO need to make this a modal 
+    alert('you audacious!') 
 };
 let yeah = new Audio("audio/yeah.mp3");
 let helpMe = new Audio("audio/help-me.wav");
