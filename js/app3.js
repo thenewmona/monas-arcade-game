@@ -79,15 +79,18 @@ Player.prototype.update = function () {
     for (let enemy of allEnemies) {
         if (this.y === enemy.y && (enemy.x + enemy.stepX / 2 > this.x && enemy.x < this.x + this.stepX / 2)) {
             this.reset();
-        }
-    }
-    
+            console.log('ouch')
+            helpMe.play();
+                }        
+    }    
     //won function needed here 
-    if (this.y === 55) {
+    if (this.y === -38) {
         this.won = true;
-        won();
-        alert('yeah');
-    }
+       // won()
+       //console.log('yeah');
+        
+    }  
+     
 }
 
 
@@ -103,7 +106,7 @@ const bug3 = new Enemy((-101 * 2.5), 83, 300);
 
 const allEnemies = [];
 allEnemies.push(bug1, bug2, bug3);
-console.log(allEnemies);
+//console.log(allEnemies);
 
 
 
@@ -123,7 +126,9 @@ document.addEventListener('keyup', function (e) {
 //per Lloan webinar 
 function won() {
     reset();
+    yeah.play();
     alert('you won!') //TODO need to make this a modal 
+    
 };
 
 function reset() {
@@ -131,3 +136,38 @@ function reset() {
     this.x = this.startX;
     allEnemies = [];
 };
+
+
+//Modal 
+let modal = document.getElementById('simpleModal');
+
+
+//get close button 
+
+let closeBtn = document.getElementsByClassName('closeBtn')[0];
+
+
+//Listen for close click
+closeBtn.addEventListener('click', closeModal);
+
+//listen for outside click
+
+window.addEventListener('click', outsideClick);
+
+//function to open Modal
+function openModal() {
+    modal.style.display = 'block'; // this is rendered as a block level element 
+}
+
+//function to close Modal
+function closeModal() {
+    modal.style.display = 'none'; //element will not be displayed 
+}
+//function to close Modal if outside click
+function outsideClick(e) {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+let yeah = new Audio("audio/yeah.mp3");
+let helpMe = new Audio("audio/help-me.wav");

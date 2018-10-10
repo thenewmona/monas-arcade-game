@@ -32,3 +32,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Obj
 [Beetle](https://www.gameartguppy.com/checkout/order-received/20766/?key=wc_order_5bbb41808b30c)
 [blue bug](https://www.gameartguppy.com/checkout/order-received/20766/?key=wc_order_5bbb41808b30c)
 [Star Beetle](https://www.gameartguppy.com/checkout/order-received/20766/?key=wc_order_5bbb41808b30c)
+
+/*collision detection*/
+
+https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+
+**Modal**
+    
+    1. [Traversy Modal Video](https://www.youtube.com/watch?v=6ophW7Ask_0)
+
+    2. https://www.w3schools.com/howto/howto_css_modals.asp
