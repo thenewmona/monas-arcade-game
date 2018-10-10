@@ -175,8 +175,6 @@ GitHub
 thenewmona/monas-arcade-game
 Contribute to thenewmona/monas-arcade-game development by creating an account on GitHub.
  
-
-
 Chase Owens (FEND) [12 hours ago]
 So what is your player's y-coordinate when colliding with the enemy on the bottom row? And the row above it? And the row above it?
 

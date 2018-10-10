@@ -3,12 +3,13 @@ let game = true; //per Lloan webinar
 let Enemy = function (x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
-    this.y = y +45; //centering the enemy along the y axis which is the top of the game
+    this.y = y + 45; //centering the enemy along the y axis which is the top of the game
     this.speed = speed; // control how fast enemies move
     this.stepX = 101; //distance between blocks on x 
     //this.stepY = 95;//distance between blocks on y 
     this.boundary = this.stepX * 5;
     this.resetPos = -this.stepX;
+   //help from Rodrick 
 };
 
 // Update the enemy's position, required method for game
@@ -37,7 +38,7 @@ let Player = function (x, y, speed) {
     this.stepX = 101; //per Matt Y starts at the top 
     this.stepY = 83;
     this.startX = this.stepX * 2; // columns advice Racheal got from Rodrick, do it by they blocks
-    this.startY = (this.stepY * 4) +45; // rows numbers represent how many blocks , 55 comes from line 5
+    this.startY = (this.stepY * 4) + 45; // rows numbers represent how many blocks , 55 comes from line 5
     this.x = this.startX;
     this.y = this.startY;
     this.won = false;
@@ -46,6 +47,7 @@ let Player = function (x, y, speed) {
 
 Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    this.moving = false;
 };
 
 Player.prototype.handleInput = function (keyEnter) {
@@ -70,8 +72,8 @@ Player.prototype.handleInput = function (keyEnter) {
                 this.y += this.stepY;
                 break;
             }
-    }
-
+                }
+    this.moving = true;
 }
 
 Player.prototype.update = function () {
@@ -79,18 +81,15 @@ Player.prototype.update = function () {
     for (let enemy of allEnemies) {
         if (this.y === enemy.y && (enemy.x + enemy.stepX / 2 > this.x && enemy.x < this.x + this.stepX / 2)) {
             this.reset();
-            console.log('ouch')
             helpMe.play();
-                }        
-    }    
+        }
+    }
     //won function needed here 
-    if (this.y === -38) {
+    if (this.y === -38 && !this.moving) { //help from Rodrick
         this.won = true;
-       // won()
-       //console.log('yeah');
-        
-    }  
-     
+        won()
+        //console.log('yeah');
+    }
 }
 
 
@@ -108,8 +107,6 @@ const allEnemies = [];
 allEnemies.push(bug1, bug2, bug3);
 //console.log(allEnemies);
 
-
-
 // provide by Udacity 
 
 document.addEventListener('keyup', function (e) {
@@ -125,20 +122,15 @@ document.addEventListener('keyup', function (e) {
 
 //per Lloan webinar 
 function won() {
-    reset();
+    player.reset();
     yeah.play();
-    alert('you won!') //TODO need to make this a modal 
-    
-};
-
-function reset() {
-    this.y = this.startY;
-    this.x = this.startX;
-    allEnemies = [];
+    alert('you audacious!') //TODO need to make this a modal 
 };
 
 
-//Modal 
+
+//Modal From Brad Traversy
+
 let modal = document.getElementById('simpleModal');
 
 
