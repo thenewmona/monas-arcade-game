@@ -124,7 +124,7 @@ document.addEventListener('keyup', function (e) {
 function won() {
     player.reset();
     yeah.play();
-    alert('you audacious!') 
+    alert('Your audacious!') 
 };
 let yeah = new Audio("audio/yeah.mp3");
 let helpMe = new Audio("audio/help-me.wav");
