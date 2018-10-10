@@ -216,3 +216,4 @@ Or just console.log(Player.y); This will give your conditional a start,
 10/9/2018 Huge help from Rodrick showed me how to do a block so that the update would quit rendering and the player would reset 
 created a git.ignore file 
 ended up not doing the modal 
+created a .gitignore file but it is not ignoring some of my js files 
