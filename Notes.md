@@ -1,9 +1,16 @@
 ##Rubric Criteria
 
 [x] Player can not move off the screen (9/26/2018 app2.js)
+
 [x] bugs cross the screen (9/26/2018 app2.js)
-[] bug player collisions happen logically (not to early or late)
-[] bug player collisions resets the game 
+
+
+[x] bug player collisions happen logically (not to early or late)(10/8/2018)
+
+[x] bug player collisions resets the game (10/6/2018)
+
+[x] something happens when the player collides with a bug 
+
 [] something happens when the player wins 
 
 9/20/2018 error message 

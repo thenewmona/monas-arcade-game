@@ -29,6 +29,14 @@ It is your job to avoid colliding with them.
 ### Collision
 Colliding with any of the zooming bugs will reset the game, and play a sound.
 
+===============================
+# Reviewer Notes 
+
+Contributions for this project can be found in both the 
+
+[Resources](https://github.com/thenewmona/monas-arcade-game/blob/master/Resources.md)
+
+[Notes](https://github.com/thenewmona/monas-arcade-game/blob/master/Notes.md)
 
 
 ===============================
