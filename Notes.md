@@ -212,3 +212,7 @@ Or just console.log(Player.y); This will give your conditional a start,
 ##Michael Jackson
 [HTML5 Canvas Game: 2D Collision Detection](https://blog.sklambert.com/html5-canvas-game-2d-collision-detection/)
 [Sweet Alert Modal](https://sweetalert.js.org/guides/)
+
+10/9/2018 Huge help from Rodrick showed me how to do a block so that the update would quit rendering and the player would reset 
+created a git.ignore file 
+ended up not doing the modal 
